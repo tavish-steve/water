@@ -96,15 +96,46 @@ updateScroll();
 // Mobile menu
 const navToggle = document.getElementById("navToggle");
 const navLinks = document.getElementById("navLinks");
+const navBackdrop = document.getElementById("navBackdrop");
+
+let scrollPosition = 0;
 
 function closeMenu() {
   navLinks.classList.remove("open");
   navToggle.setAttribute("aria-expanded", "false");
+  if (navBackdrop) navBackdrop.classList.remove("active");
+  restoreScroll();
 }
+
+function lockScroll() {
+  scrollPosition = window.pageYOffset;
+  document.body.style.position = "fixed";
+  document.body.style.top = `-${scrollPosition}px`;
+  document.body.style.width = "100%";
+}
+
+function restoreScroll() {
+  document.body.style.position = "";
+  document.body.style.top = "";
+  document.body.style.width = "";
+  window.scrollTo(0, scrollPosition);
+}
+
 navToggle.addEventListener("click", () => {
   const open = navLinks.classList.toggle("open");
   navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+  if (navBackdrop) navBackdrop.classList.toggle("active", open);
+  if (open) {
+    lockScroll();
+  } else {
+    restoreScroll();
+  }
 });
+
+if (navBackdrop) {
+  navBackdrop.addEventListener("click", closeMenu);
+}
+
 navLinks.querySelectorAll("a").forEach((link) =>
   link.addEventListener("click", closeMenu),
 );
