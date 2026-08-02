@@ -27,8 +27,6 @@ body {
 }
 .body-locked {
   overflow: hidden;
-  position: fixed;
-  width: 100%;
 }
 
 a {

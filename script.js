@@ -98,8 +98,6 @@ const navToggle = document.getElementById("navToggle");
 const navLinks = document.getElementById("navLinks");
 const navBackdrop = document.getElementById("navBackdrop");
 
-let scrollPosition = 0;
-
 function closeMenu() {
   navLinks.classList.remove("open");
   navToggle.setAttribute("aria-expanded", "false");
@@ -108,15 +106,13 @@ function closeMenu() {
 }
 
 function lockScroll() {
-  scrollPosition = window.pageYOffset;
+  document.documentElement.classList.add("body-locked");
   document.body.classList.add("body-locked");
-  document.body.style.top = `-${scrollPosition}px`;
 }
 
 function restoreScroll() {
+  document.documentElement.classList.remove("body-locked");
   document.body.classList.remove("body-locked");
-  document.body.style.top = "";
-  window.scrollTo(0, scrollPosition);
 }
 
 navToggle.addEventListener("click", () => {
@@ -205,7 +201,7 @@ if (contactForm && submitBtn) {
       const isValid = /^(\+\d{1,3})?\d{7,15}$/.test(normalized) && normalized.length >= 7;
       return isValid
         ? ""
-        : "Enter a valid phone number, including country code if needed.",
+        : "Enter a valid phone number, including country code if needed.";
     },
     email: (v) =>
       /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? "" : "Enter a valid email address.",
