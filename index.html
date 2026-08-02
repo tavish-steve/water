@@ -204,10 +204,17 @@
         <li><a href="#services">Services</a></li>
         <li><a href="#projects">Projects</a></li>
 
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <a href="#contact" class="nav-cta">Get a Quote</a>
+         <li><a href="#faq">FAQ</a></li>
+         <li><a href="#contact">Contact</a></li>
+         <li class="nav-cta-mobile">
+           <a
+             href="#contact"
+             onclick="trackConversion('lead_cta_mobile')"
+             >Get a Quote</a
+           >
+         </li>
+       </ul>
+       <a href="#contact" class="nav-cta">Get a Quote</a>
       <button
         class="nav-toggle"
         id="navToggle"
@@ -893,19 +900,18 @@
       💬
     </a>
 
-    <!-- MOBILE STICKY CTA BAR -->
-    <div class="mobile-cta-bar">
-      <a href="tel:+254727043873" onclick="trackConversion('phone_click')"
-        >📞 Call</a
-      >
-      <a
-        href="https://wa.me/254727043873?text=Hi%20Water%20Marc%20Builders%2C%20I'd%20like%20a%20free%20quote%20for%20my%20project."
-        target="_blank"
-        rel="noopener"
-        onclick="trackConversion('whatsapp_click')"
-        >💬 WhatsApp</a
-      >
-    </div>
+     <!-- MOBILE STICKY CTA BAR -->
+     <div class="mobile-cta-bar">
+       <a href="tel:+254727043873" onclick="trackConversion('phone_click')"
+         >📞 Call</a
+       >
+       <a
+         href="#contact"
+         class="mobile-cta-primary"
+         onclick="trackConversion('lead_cta_mobile')"
+         >Get a Quote</a
+       >
+     </div>
 
     <script src="script.js"></script>
   </body>

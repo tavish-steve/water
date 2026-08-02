@@ -150,6 +150,9 @@ nav.scrolled {
 .nav-cta:hover {
   background: var(--orange-dark);
 }
+.nav-cta-mobile {
+  display: none;
+}
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -1205,27 +1208,48 @@ footer {
   .nav-links {
     position: fixed;
     top: 0;
+    left: 0;
     right: 0;
-    height: 100vh;
+    width: 100%;
+    max-width: none;
     height: 100dvh;
-    width: 80%;
-    max-width: 360px;
     flex-direction: column;
     gap: 1.5rem;
-    padding: calc(6rem + env(safe-area-inset-top, 0px)) 2rem 2rem max(2rem, env(safe-area-inset-right));
-    background: rgba(8, 15, 34, 0.98);
-    border-left: 1px solid rgba(232, 119, 34, 0.2);
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.35);
-    transform: translateX(100%);
+    padding: calc(4.5rem + env(safe-area-inset-top, 0px)) 2rem 6rem;
+    background: var(--dark);
+    border-bottom: 1px solid rgba(232, 119, 34, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-100%);
     transition: transform 0.35s ease;
     overflow-y: auto;
     overscroll-behavior: contain;
+    z-index: 99;
   }
   .nav-links.open {
-    transform: translateX(0);
+    transform: translateY(0);
   }
   .nav-links a {
-    font-size: 1rem;
+    font-size: 1.05rem;
+  }
+  .nav-cta-mobile {
+    display: block;
+    margin-top: 0.5rem;
+  }
+  .nav-cta-mobile a {
+    display: block;
+    text-align: center;
+    background: var(--orange);
+    color: #fff;
+    padding: 0.85rem 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 0 100%);
+    transition: background 0.3s;
+  }
+  .nav-cta-mobile a:hover {
+    background: var(--orange-dark);
   }
   .nav-toggle {
     display: flex;
@@ -1233,16 +1257,9 @@ footer {
     min-width: 44px;
     min-height: 44px;
     position: relative;
-    margin-left: 0.5rem;
   }
   .nav-cta {
-    display: inline-block;
-    margin-left: auto;
-    padding: 0.5rem 1rem;
-    font-size: 0.72rem;
-    letter-spacing: 0.05em;
-    clip-path: none;
-    border-radius: 0;
+    display: none;
   }
   .hero {
     grid-template-columns: 1fr;
@@ -1701,7 +1718,7 @@ footer {
   }
   .mobile-cta-bar {
     display: grid;
-    grid-template-columns: 1fr 1fr 1.3fr;
+    grid-template-columns: 1fr 1.5fr;
     position: fixed;
     bottom: 0;
     left: 0;
