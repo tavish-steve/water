@@ -25,6 +25,11 @@ body {
   color: var(--white);
   overflow-x: hidden;
 }
+.body-locked {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
 
 a {
   color: inherit;
@@ -1227,9 +1232,17 @@ footer {
     z-index: 110;
     min-width: 44px;
     min-height: 44px;
+    position: relative;
+    margin-left: 0.5rem;
   }
   .nav-cta {
-    display: none;
+    display: inline-block;
+    margin-left: auto;
+    padding: 0.5rem 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    clip-path: none;
+    border-radius: 0;
   }
   .hero {
     grid-template-columns: 1fr;
@@ -1287,7 +1300,7 @@ footer {
   }
   .mobile-cta-bar {
     display: grid;
-    grid-template-columns: 1fr 1fr 1.3fr;
+    grid-template-columns: 1fr 1.3fr;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -1370,7 +1383,7 @@ footer {
     font-size: 1.4rem;
   }
   .mobile-cta-bar {
-    grid-template-columns: 1fr 1fr 1.2fr;
+    grid-template-columns: 1fr 1.2fr;
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
   .mobile-cta-bar a {
@@ -1492,10 +1505,6 @@ footer {
     padding: 0.8rem 0.3rem;
     font-size: 0.78rem;
     font-weight: 500;
-  }
-  .mobile-cta-bar a:last-child {
-    grid-column: 1 / -1;
-    margin-top: 4px;
   }
   .mobile-cta-primary {
     background: var(--orange);

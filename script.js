@@ -109,15 +109,13 @@ function closeMenu() {
 
 function lockScroll() {
   scrollPosition = window.pageYOffset;
-  document.body.style.position = "fixed";
+  document.body.classList.add("body-locked");
   document.body.style.top = `-${scrollPosition}px`;
-  document.body.style.width = "100%";
 }
 
 function restoreScroll() {
-  document.body.style.position = "";
+  document.body.classList.remove("body-locked");
   document.body.style.top = "";
-  document.body.style.width = "";
   window.scrollTo(0, scrollPosition);
 }
 
