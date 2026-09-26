@@ -925,10 +925,14 @@ h2 span {
   background: rgba(232, 119, 34, 0.08);
   transform: translateX(4px);
 }
-.contact-item .ci-icon {
-  font-size: 1.3rem;
-  flex-shrink: 0;
-}
+  .contact-item .ci-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .contact-item .ci-icon svg {
+    width: 20px;
+    height: 20px;
+  }
 .contact-item .ci-label {
   font-size: 0.75rem;
   color: var(--orange);
@@ -1089,10 +1093,35 @@ footer {
   letter-spacing: 0.05em;
   transition: color 0.3s;
 }
-.footer-links a:hover {
-  color: var(--orange);
-}
-.footer-copy {
+  .footer-links a:hover {
+    color: var(--orange);
+  }
+  .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: var(--white);
+    font-size: 1.4rem;
+    transition: transform 0.3s, background 0.3s;
+  }
+  .social-link:hover {
+    background: var(--orange-dark);
+    transform: translateY(-3px);
+  }
+  .social-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .footer-copy {
   font-size: 0.8rem;
   color: var(--gray);
   text-align: right;
@@ -1307,6 +1336,30 @@ footer {
   .footer-copy {
     text-align: center;
   }
+  .footer-social {
+    display: flex;
+    justify-content: center;
+  }
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: var(--white);
+    font-size: 1.4rem;
+    transition: transform 0.3s, background 0.3s;
+  }
+  .social-link:hover {
+    background: var(--orange-dark);
+    transform: translateY(-3px);
+  }
+  .social-icon {
+    width: 20px;
+    height: 20px;
+  }
   .whatsapp-float {
     bottom: 5.2rem;
     left: max(1rem, env(safe-area-inset-left));
@@ -1503,6 +1556,10 @@ footer {
   }
   .contact-item .ci-icon {
     font-size: 1.15rem;
+  }
+  .contact-item .ci-icon svg {
+    width: 18px;
+    height: 18px;
   }
   .contact-item .ci-val {
     font-size: 0.85rem;
